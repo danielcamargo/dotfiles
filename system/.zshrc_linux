@@ -4,6 +4,10 @@ ZSH_THEME="robbyrussell"
 
 plugins=(git nvm)
 
+# Setup plugins
+zstyle ':omz:plugins:nvm' autoload yes
+
+# Load Oh My Zsh
 source $ZSH/oh-my-zsh.sh
 
 # VS Code
@@ -40,8 +44,6 @@ function gitwip(){
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-zstyle ':omz:plugins:nvm' autoload yes
 
 # Java & Kotlin
 export SDKMAN_DIR="$HOME/.sdkman"
