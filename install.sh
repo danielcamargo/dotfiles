@@ -32,6 +32,9 @@ fi
 if [ -d "$TARGET" ]; then
   cd "$TARGET" || exit
   echo "Updating existing dotfiles repository..."
+  # reset any local changes
+  git clean -fd
+  git reset --hard HEAD
   git pull
 else
   echo "Cloning dotfiles repository..."
