@@ -1,0 +1,74 @@
+# Default Zshel config
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="robbyrussell"
+
+plugins=(git nvm)
+
+source $ZSH/oh-my-zsh.sh
+
+# VS Code
+alias code='open -b com.microsoft.VSCode "$@"'
+
+# Brew
+export PATH="/opt/homebrew/bin:$PATH"
+export HOMEBREW_EDITOR=code
+
+# PHP
+export PATH="$HOME/.composer/vendor/bin:$PATH"
+alias pa="php artisan"
+
+# Git
+alias gitreset="git clean -fd; git reset --hard HEAD;"
+alias gitrollback="git reset --hard HEAD~1"
+
+function gitp(){
+    git add .
+    # branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
+    if [ -z "$1" ]
+    then
+        >&2 echo "Message can't be empty."
+        return 1
+    fi
+    
+    git commit -am "$@"
+    git push
+}
+
+function gitwip(){
+    git add .
+    git commit -m "WIP"
+    git push
+}
+
+# Node.js
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+zstyle ':omz:plugins:nvm' autoload yes
+
+# Java & Kotlin
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# Direnv
+eval "$(direnv hook zsh)"
+
+# .net core
+export PATH="$PATH:/Users/daniel/.dotnet/tools"
+
+# Docker
+
+# AWS
+alias awslocal="aws --endpoint-url=http://localhost:4566"
+alias awslocallogtail="awslocal logs tail --follow --region us-east-1 --format short"
+
+# MySQL
+function redb(){
+    mysql -h 127.0.0.1 -u root -p@123Mudar -e "drop schema if exists $1; create schema $1;"
+    if [ $2 ]
+    then
+        echo "Restoring dump: $2"
+        mysql -h 127.0.0.1 -u root -p@123Mudar $1 < $2
+    fi
+}

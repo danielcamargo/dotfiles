@@ -1,0 +1,25 @@
+# Generic
+[core]
+	excludesFile = ~/.gitignore_global
+	autocrlf = true
+	safecrlf = false
+	filemode = true
+[push]
+	default = simple
+	autoSetupRemote = true
+[pull]
+	rebase = false
+[init]
+	defaultBranch = main
+
+# Ensign
+[includeIf "gitdir:~/Projects/Ensign/"]
+path = ~/Projects/Ensign/.gitconfig
+
+# Personal
+[includeIf "gitdir:~/Projects/Personal/"]
+path = ~/Projects/Personal/.gitconfig
+
+# PracticeFront
+[includeIf "gitdir:~/Projects/PracticeFront/"]
+path = ~/Projects/PracticeFront/.gitconfig

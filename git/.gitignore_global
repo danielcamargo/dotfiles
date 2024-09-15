@@ -1,0 +1,12 @@
+# My source code editors
+.idea
+
+# OS Files to ignore
+.DS_Store
+
+# Windows Files to ignore
+Thumbs.db
+
+# Custom files/folder to ignore
+workspace
+PlaygroundCommand.php

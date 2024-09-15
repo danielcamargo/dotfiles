@@ -1,0 +1,9 @@
+[user]
+	name = Daniel Teleginski Camargo
+	email = daniel.camargo.eti@gmail.com
+
+[github]
+    user = danielcamargo
+
+[core]
+    sshCommand = ssh -i ~/.ssh/danielcamargo_rsa -F /dev/null
