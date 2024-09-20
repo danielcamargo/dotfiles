@@ -1,7 +1,7 @@
 # Generic
 [core]
 	excludesFile = ~/.gitignore_global
-	autocrlf = true
+	autocrlf = false
 	safecrlf = false
 	filemode = true
 [push]
