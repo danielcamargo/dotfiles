@@ -1,0 +1,28 @@
+# Git
+alias gco="git checkout"
+alias gitreset="git clean -fd; git reset --hard HEAD;"
+alias gitrollback="git reset --hard HEAD~1"
+
+function gitp(){
+    git add .
+    # branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
+    if [ -z "$1" ]
+    then
+        >&2 echo "Message can't be empty."
+        return 1
+    fi
+
+    git commit -am "$@"
+    git push
+}
+
+function gitwip(){
+    git add .
+    git commit -m "WIP"
+    git push
+}
+
+# PostgreSQL
+export PATH="/c/Program Files/PostgreSQL/17/bin":$PATH
+
+# another

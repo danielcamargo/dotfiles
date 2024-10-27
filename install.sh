@@ -1,5 +1,5 @@
-SOURCE="https://github.com/danielcamargo/dotfiles"
-TARGET="$HOME/.dotfiles"
+# Current directory
+TARGET="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 OS="unknown"
 
@@ -23,22 +23,9 @@ else
   echo "Unsupported OS"
 fi
 
-# If OS is uknown, exit
+# If OS is unknown, exit
 if [ "$OS" == "unknown" ]; then
   exit 1
-fi
-
-# check if $HOME/.dotfiles exists, if so, git pull, otherwise clone
-if [ -d "$TARGET" ]; then
-  cd "$TARGET" || exit
-  echo "Updating existing dotfiles repository..."
-  # reset any local changes
-  git clean -fd
-  git reset --hard HEAD
-  git pull
-else
-  echo "Cloning dotfiles repository..."
-  git clone $SOURCE $TARGET
 fi
 
 ## ZSH Configuration
@@ -47,18 +34,18 @@ echo "Creating symlink for .zshrc/.bashrc ($OS)"
 
 # if windows, we will create a .bashrc instead of .zshrc
 if [ "$OS" == "windows" ]; then
-  ln -sf $TARGET/system/.bashrc_$OS $HOME/.bashrc
+  ln -sf "$TARGET"/system/.bashrc_$OS "$HOME"/.bashrc
 else
-  ln -sf $TARGET/system/.zshrc_$OS $HOME/.zshrc
+  ln -sf "$TARGET"/system/.zshrc_$OS "$HOME"/.zshrc
 fi
 
 ## Git Configuration
 # Create or replace the symlink for .gitconfig
-ln -sf $TARGET/git/.gitconfig $HOME/.gitconfig
-ln -sf $TARGET/git/.gitignore_global $HOME/.gitignore_global
+ln -sf "$TARGET"/git/.gitconfig "$HOME"/.gitconfig
+ln -sf "$TARGET"/git/.gitignore_global "$HOME"/.gitignore_global
 
 # Define an array of folder names
-folders=("Personal" "Ensign" "Church" "PracticeFront" "VCom")
+folders=("Personal" "Ensign" "Church" "PracticeFront" "VCom" "NextSpark")
 
 # Ensure the base directory exists
 mkdir -p "$HOME/Projects"
