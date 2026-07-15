@@ -1,0 +1,162 @@
+// Place your key bindings in this file to override the defaults
+[
+    // show chat agent
+    {
+        "key": "ctrl+shift+i",
+        "command": "workbench.action.chat.toggle",
+        "when": "config.chat.agent.enabled"
+    },
+    /** panels */
+    {
+        "key": "ctrl+1",
+        "command": "workbench.view.explorer",
+        "when": "!sideBarVisible || !explorerViewletVisible"
+    },
+    {
+        "key": "ctrl+1",
+        "command": "workbench.action.toggleSidebarVisibility",
+        "when": "sideBarVisible && explorerViewletVisible"
+    },
+    {
+        "key": "ctrl+2",
+        "command": "workbench.view.scm"
+    },
+    {
+        "key": "ctrl+3",
+        "command": "workbench.view.debug"
+    },
+    {
+        "key": "ctrl+4",
+        "command": "workbench.view.extensions"
+    },
+    {
+        "key": "ctrl+t",
+        "command": "workbench.action.terminal.toggleTerminal"
+    },
+    /* File explorer */
+    {
+        "key": "ctrl+n",
+        "command": "explorer.newFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+    },
+    {
+        "key": "shift+ctrl+n",
+        "command": "explorer.newFolder",
+        "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+    },
+    /* terminal split */
+    {
+        "key": "ctrl+n",
+        "command": "workbench.action.terminal.split",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+w",
+        "command": "workbench.action.terminal.kill",
+        "when": "terminalFocus"
+    },
+    /* line manipulation */
+    {
+        "key": "shift+ctrl+[",
+        "command": "editor.fold",
+        "when": "editorFocus"
+    },
+    {
+        "key": "shift+ctrl+]",
+        "command": "editor.unfold",
+        "when": "editorFocus"
+    },
+    {
+        "key": "alt+down",
+        "command": "editor.action.moveLinesDownAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "alt+up",
+        "command": "editor.action.moveLinesUpAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+delete",
+        "command": "editor.action.deleteLines",
+        "when": "textInputFocus && !editorReadonly"
+    },
+    /* cursor */
+    {
+        "key": "ctrl+right",
+        "command": "editor.action.insertCursorAtEndOfEachLineSelected",
+        "when": "editorFocus && editorHasSelection"
+    },
+    {
+        "key": "alt+ctrl+down",
+        "command": "editor.action.insertCursorBelow",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+ctrl+up",
+        "command": "editor.action.insertCursorAbove",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+d",
+        "command": "editor.action.addSelectionToNextFindMatch",
+        "when": "editorFocus"
+    },
+    /* Split Panels */
+    {
+        "key": "ctrl+w",
+        "command": "workbench.action.joinAllGroups",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+n",
+        "command": "workbench.action.splitEditor",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+=",
+        "command": "workbench.action.increaseViewSize",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+-",
+        "command": "workbench.action.decreaseViewSize",
+        "when": "editorFocus"
+    },
+    /** IntelliSense **/
+    {
+        "key": "ctrl+space",
+        "command": "editor.action.triggerSuggest",
+        "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "workbench.action.gotoSymbol",
+    },
+    {
+        "key": "ctrl+shift+r",
+        "command": "workbench.action.showAllSymbols"
+    },
+    {
+        "key": "ctrl+k ctrl+enter",
+        "command": "editor.action.goToDeclaration",
+        "when": "editorTextFocus"
+    },
+    /* navigation */
+    {
+        "key": "alt+left",
+        "command": "workbench.action.navigateBack",
+        "when": "canNavigateBack"
+    },
+    {
+        "key": "alt+right",
+        "command": "workbench.action.navigateForward",
+        "when": "canNavigateForward"
+    },
+    /* Formatting */
+    {
+        "key": "alt+ctrl+l",
+        "command": "editor.action.formatDocument",
+        "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
+    },
+]
